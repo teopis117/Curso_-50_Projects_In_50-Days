@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    font-family: 'Mulish', sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* agregamos un display flex para poder colocar horizontalmente a nuestros paneles */
+.container
+{
+    display: flex;
+    width: 90vw;
+}
+
+
+/* definimos cada panel */
+.panel
+{
+
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative ;
+    transition: flex 0.7s ease-in;
+
+}
+
+.panel h3
+{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    /* para ocultar los demas titulos */
+    opacity: 0;
+}
+
+/* par que el panel activo sea el mas grande  */
+.panel.active
+{
+    flex: 5;
+}
+
+/* para que solo se muestre el titulo del panel activo */
+.panel.active h3
+{
+    opacity: 1;
+                                    /* 0.4s es para el delay */
+    transition: Opacity 0.3s ease-in  0.4s ;
+}
+
+@media (max-width:480px)
+{
+    .container
+    {
+        width: 100vh;
+    }
+
+    /* cuando la pantalla sea demasiado chica podamos esconder algunos paneles para mostrar mejor los 3 primeros */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5)
+    {
+        
+        display: none;
+    }
+}
